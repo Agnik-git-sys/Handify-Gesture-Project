@@ -1,7 +1,7 @@
 import cv2
 import mediapipe as mp
 
-#new
+#new updates
 
 def camera():
     cam = cv2.VideoCapture(0)
