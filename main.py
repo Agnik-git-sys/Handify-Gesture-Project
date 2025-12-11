@@ -16,7 +16,7 @@ def camera():
     cam.release()
     cv2.destroyAllWindows()
             
-
+#main chekcing
 
 if __name__ == "__main__":
     camera()
