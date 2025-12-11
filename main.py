@@ -1,4 +1,8 @@
 import cv2
+import mediapipe as mp
+
+
+
 def camera():
     cam = cv2.VideoCapture(0)
 
