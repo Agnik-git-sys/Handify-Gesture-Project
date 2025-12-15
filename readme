@@ -1,0 +1,24 @@
+Project Progress Roadmap
+
+This project is being developed incrementally, with each stage building on the previous one.
+The focus is on understanding concepts clearly before moving to advanced gesture control.
+
+✅ Stage 1: OpenCV Basics (Completed)
+
+Goal: Verify webcam access and real-time video feed.
+
+✔️ Open webcam using OpenCV
+✔️ Capture frames in a loop
+✔️ Display live video
+✔️ Safely exit using keyboard input
+
+
+✅ Stage 2: MediaPipe Hand Detection (Completed)
+
+Goal: Detect hands and visualize landmarks in real time.
+
+✔️ Integrate MediaPipe Hands model
+✔️ Convert frames from BGR to RGB
+✔️ Detect a single hand
+✔️ Draw 21 hand landmarks and connections
+✔️ Live, smooth hand tracking
