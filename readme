@@ -22,3 +22,27 @@ Goal: Detect hands and visualize landmarks in real time.
 ✔️ Detect a single hand
 ✔️ Draw 21 hand landmarks and connections
 ✔️ Live, smooth hand tracking
+
+✅ Stage 3: Landmark Point Extraction & Distance Math (Completed)
+
+Goal: Extract exact hand landmark values and understand geometric distance.
+
+✔️ Access individual landmark points (x, y, z)
+✔️ Identify important landmarks (wrist, finger tips)
+✔️ Understand normalized coordinate system (0–1 range)
+✔️ Convert normalized values to pixel coordinates
+✔️ Apply 2D distance formula (coordinate geometry)
+✔️ Measure distance between wrist and index finger
+✔️ Display distance values live on screen
+
+✅ Stage 4: Hand Movement Detection (Completed)
+
+Goal: Detect hand movement direction using coordinate differences.
+
+✔️ Track wrist position across consecutive frames
+✔️ Store previous x and y coordinates
+✔️ Calculate movement vectors (dx, dy)
+✔️ Understand screen coordinate system (x → left/right, y → up/down)
+✔️ Detect LEFT, RIGHT, UP, and DOWN movement
+✔️ Apply thresholds to reduce noise
+✔️ Display dx and dy values live on the webcam screen
