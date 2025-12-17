@@ -20,6 +20,8 @@ def camera():
         if not ret:
             print("cam not working")
             break
+
+        #mediapipe draw hand loop
         if result.multi_hand_landmarks:
             for hands_landmark in result.multi_hand_landmarks:
                 mp_draw.draw_landmarks(
@@ -27,6 +29,27 @@ def camera():
                     hands_landmark,
                     mp_hand.HAND_CONNECTIONS
                 )
+
+                #setting up the hands coords
+                hand = result.multi_hand_landmarks[0]
+
+                wrist = hand.landmark[0]
+                index = hand.landmark[8]
+
+                w_x , w_y = wrist.x , wrist.y 
+                i_x , i_y = index.x , index.y 
+
+                wist_json = {
+                    "wrist_x" : w_x,
+                    "wrist_y" : w_y,
+                }
+
+                index_json = {
+                    "index_x" : i_x,
+                    "index_y" : i_y,
+                }
+
+                
         cv2.imshow("agnik",frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
