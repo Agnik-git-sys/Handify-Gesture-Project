@@ -1,5 +1,6 @@
 import cv2
 import mediapipe as mp
+import math
 
 #new updates
 #adding mediapipe for hand dect
@@ -11,6 +12,7 @@ mp_draw = mp.solutions.drawing_utils
 
 def camera():
     cam = cv2.VideoCapture(0)
+    
 
     while True:
         ret, frame = cam.read()
@@ -39,6 +41,10 @@ def camera():
                 w_x , w_y = wrist.x , wrist.y 
                 i_x , i_y = index.x , index.y 
 
+                prev_x = None
+                prev_y = None
+                #code from here 19/12/2025
+
                 wist_json = {
                     "wrist_x" : w_x,
                     "wrist_y" : w_y,
@@ -49,7 +55,7 @@ def camera():
                     "index_y" : i_y,
                 }
 
-                
+        frame = cv2.resize(frame, (1000, 700))
         cv2.imshow("agnik",frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
