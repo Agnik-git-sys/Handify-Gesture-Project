@@ -1,48 +1,189 @@
-Project Progress Roadmap
+✋ Gesture-Controlled Virtual Drawing Board (OpenCV + MediaPipe)
 
-This project is being developed incrementally, with each stage building on the previous one.
-The focus is on understanding concepts clearly before moving to advanced gesture control.
+A real-time gesture-controlled virtual drawing board built using OpenCV and MediaPipe Hands, where users can draw on the screen using hand gestures — no mouse, no touchscreen, just a webcam.
 
-✅ Stage 1: OpenCV Basics (Completed)
+This project is developed incrementally, focusing on understanding the math, logic, and concepts behind hand tracking and gesture-based interaction.
 
-Goal: Verify webcam access and real-time video feed.
+🚀 Project Overview
 
-✔️ Open webcam using OpenCV
-✔️ Capture frames in a loop
-✔️ Display live video
-✔️ Safely exit using keyboard input
+The system uses:
 
+Index fingertip as a virtual pen
 
-✅ Stage 2: MediaPipe Hand Detection (Completed)
+Pinch gesture (index + thumb) as pen down / pen up
 
-Goal: Detect hands and visualize landmarks in real time.
+A persistent canvas to store drawings
 
-✔️ Integrate MediaPipe Hands model
-✔️ Convert frames from BGR to RGB
-✔️ Detect a single hand
-✔️ Draw 21 hand landmarks and connections
-✔️ Live, smooth hand tracking
+Real-time geometric distance calculations to control drawing behavior
 
-✅ Stage 3: Landmark Point Extraction & Distance Math (Completed)
+The result is an interactive virtual whiteboard that responds naturally to hand movements.
 
-Goal: Extract exact hand landmark values and understand geometric distance.
+🎯 Features Implemented
 
-✔️ Access individual landmark points (x, y, z)
-✔️ Identify important landmarks (wrist, finger tips)
-✔️ Understand normalized coordinate system (0–1 range)
-✔️ Convert normalized values to pixel coordinates
-✔️ Apply 2D distance formula (coordinate geometry)
-✔️ Measure distance between wrist and index finger
-✔️ Display distance values live on screen
+Real-time webcam feed using OpenCV
 
-✅ Stage 4: Hand Movement Detection (Completed)
+Accurate hand detection using MediaPipe Hands
 
-Goal: Detect hand movement direction using coordinate differences.
+Extraction of individual hand landmarks
 
-✔️ Track wrist position across consecutive frames
-✔️ Store previous x and y coordinates
-✔️ Calculate movement vectors (dx, dy)
-✔️ Understand screen coordinate system (x → left/right, y → up/down)
-✔️ Detect LEFT, RIGHT, UP, and DOWN movement
-✔️ Apply thresholds to reduce noise
-✔️ Display dx and dy values live on the webcam screen
+Conversion of normalized landmark coordinates to pixel space
+
+Pinch gesture detection using Euclidean distance
+
+Persistent virtual drawing canvas
+
+Continuous line drawing using frame-to-frame tracking
+
+Live debugging visuals (finger point & pinch distance)
+
+🧠 Core Concepts Learned
+
+Computer Vision fundamentals
+
+Coordinate systems (normalized vs pixel coordinates)
+
+Euclidean distance geometry
+
+Gesture state detection (binary logic from continuous data)
+
+Temporal tracking (previous vs current frame)
+
+Canvas-based rendering
+
+Human–Computer Interaction (HCI) basics
+
+🗺️ Project Progress Roadmap
+✅ Stage 1: OpenCV Basics
+
+Webcam access and frame capture
+
+Live video display
+
+Safe program exit
+
+✅ Stage 2: MediaPipe Hand Detection
+
+Hand landmark detection
+
+Real-time visualization
+
+Stable tracking
+
+✅ Stage 3: Landmark Extraction & Distance Math
+
+Access landmark coordinates
+
+Understand normalized coordinates
+
+Convert to pixel coordinates
+
+Apply Euclidean distance formula
+
+✅ Stage 4: Hand Movement Detection
+
+Track movement across frames
+
+Detect directional motion
+
+Apply thresholds to reduce noise
+
+✅ Stage 5: Pinch Gesture Detection
+
+Detect index–thumb pinch
+
+Convert distance into gesture state (ON/OFF)
+
+✅ Stage 6: Virtual Drawing Canvas
+
+Create persistent canvas using NumPy
+
+Draw continuous strokes using fingertip motion
+
+Control drawing using pinch gesture
+
+Blend drawing canvas with live video
+
+🛠️ Tech Stack
+
+Python
+
+OpenCV
+
+MediaPipe
+
+NumPy
+
+Math (Geometry)
+
+📐 How It Works (High Level)
+
+Capture webcam frames
+
+Detect hand landmarks using MediaPipe
+
+Convert fingertip coordinates to pixel space
+
+Measure distance between index finger and thumb
+
+If distance < threshold → pen down
+
+Draw a line between previous and current fingertip positions
+
+Store drawing on a persistent canvas
+
+Overlay canvas on live video feed
+
+▶️ How to Run
+Prerequisites
+pip install opencv-python mediapipe numpy
+
+Run the program
+python main.py
+
+Controls
+
+✍️ Pinch index + thumb → draw
+
+✋ Release pinch → stop drawing
+
+❌ Press Q → quit
+
+📂 Project Structure (Current)
+.
+├── main.py        # Camera loop, hand tracking, drawing logic
+├── README.md      # Project documentation
+
+🔜 Future Improvements
+
+Stroke smoothing (reduce shaky lines)
+
+Eraser gesture
+
+Clear canvas gesture
+
+Brush size control
+
+Color selection
+
+Save drawing as image
+
+Modular code structure
+
+💡 Why This Project Matters
+
+This is not just an OpenCV demo.
+
+It demonstrates:
+
+Real-time computer vision
+
+Gesture-based interaction design
+
+Mathematical reasoning applied to visuals
+
+Foundations of AR and HCI systems
+
+📌 Author
+
+Agnik Mondal
+Aspiring Python Developer | Computer Vision Enthusiast
